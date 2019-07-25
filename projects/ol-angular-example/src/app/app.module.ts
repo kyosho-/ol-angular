@@ -1,16 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppRoutingModule } from './app-routing.module';
+
+import { ExampleInMemoryDataService } from './common/example-in-memory-data.service';
+
+import { AnimationComponent } from './component/example/animation/animation.component';
+import { ArcgisTiledComponent } from './component/example/arcgis-tiled/arcgis-tiled.component';
+import { SimpleComponent } from './component/example/simple/simple.component';
+
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { StaticImageComponent } from './component/example/static-image/static-image.component';
+import { MousePositionComponent } from './component/example/mouse-position/mouse-position.component';
+import { CustomControlsComponent } from './component/example/custom-controls/custom-controls.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AnimationComponent,
+    ArcgisTiledComponent,
+    SimpleComponent,
+    DashboardComponent,
+    StaticImageComponent,
+    MousePositionComponent,
+    CustomControlsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      ExampleInMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
