@@ -18,6 +18,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { StaticImageComponent } from './component/example/static-image/static-image.component';
 import { MousePositionComponent } from './component/example/mouse-position/mouse-position.component';
 import { CustomControlsComponent } from './component/example/custom-controls/custom-controls.component';
+import { StaticImage2Component } from './component/example/static-image2/static-image2.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CustomControlsComponent } from './component/example/custom-controls/cus
     DashboardComponent,
     StaticImageComponent,
     MousePositionComponent,
-    CustomControlsComponent
+    CustomControlsComponent,
+    StaticImage2Component
   ],
   imports: [
     BrowserModule,

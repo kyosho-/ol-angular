@@ -8,6 +8,7 @@ import { CustomControlsComponent } from './component/example/custom-controls/cus
 import { MousePositionComponent } from './component/example/mouse-position/mouse-position.component';
 import { SimpleComponent } from './component/example/simple/simple.component';
 import { StaticImageComponent } from './component/example/static-image/static-image.component';
+import { StaticImage2Component } from './component/example/static-image2/static-image2.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'example/custom-controls', component: CustomControlsComponent },
   { path: 'example/mouse-position', component: MousePositionComponent },
   { path: 'example/simple', component: SimpleComponent },
+  { path: 'example/static-image2', component: StaticImage2Component },
   { path: 'example/static-image', component: StaticImageComponent }
 ];
 

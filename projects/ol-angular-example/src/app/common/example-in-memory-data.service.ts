@@ -43,6 +43,12 @@ export class ExampleInMemoryDataService implements InMemoryDbService {
         fileName: 'static-image.html',
         name: 'Static Image',
         description: 'Example of a static image layer.'
+      },
+      {
+        id: 'static-image2',
+        fileName: 'static-image2.html',
+        name: 'Static Image2',
+        description: 'Example of a static image layer.'
       }
     ];
     return { examples };
