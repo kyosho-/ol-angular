@@ -9,6 +9,7 @@ import { MousePositionComponent } from './component/example/mouse-position/mouse
 import { SimpleComponent } from './component/example/simple/simple.component';
 import { StaticImageComponent } from './component/example/static-image/static-image.component';
 import { StaticImage2Component } from './component/example/static-image2/static-image2.component';
+import { D3Component } from './component/example/d3/d3.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'example/animation', component: AnimationComponent },
   { path: 'example/arcgis-tiled', component: ArcgisTiledComponent },
   { path: 'example/custom-controls', component: CustomControlsComponent },
+  { path: 'example/d3', component: D3Component },
   { path: 'example/mouse-position', component: MousePositionComponent },
   { path: 'example/simple', component: SimpleComponent },
   { path: 'example/static-image2', component: StaticImage2Component },

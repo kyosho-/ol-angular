@@ -27,6 +27,12 @@ export class ExampleInMemoryDataService implements InMemoryDbService {
         description: 'Shows how to create custom contorls.'
       },
       {
+        id: 'd3',
+        fileName: 'd3.html',
+        name: 'd3 Integration',
+        description: 'Example of using OpenLayers and d3 together.'
+      },
+      {
         id: 'mouse-position',
         fileName: 'mouse-position.html',
         name: 'Mouse Position',
