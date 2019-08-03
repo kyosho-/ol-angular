@@ -1,1 +1,11 @@
-<p>mouse-position works!</p>
+<div id="map" class="map"></div>
+<div id="mouse-position"></div>
+<form>
+    <label>Projection </label>
+    <select id="projection" (change)="changeProjection($event)">
+        <option value="EPSG:4326">EPSG:4326</option>
+        <option value="EPSG:3857">EPSG:3857</option>
+    </select>
+    <label>Precision </label>
+    <input id="precision" type="number" min="0" max="12" value="4" (change)="changePrecision($event)" />
+</form>

@@ -20,6 +20,7 @@ import { MousePositionComponent } from './component/example/mouse-position/mouse
 import { CustomControlsComponent } from './component/example/custom-controls/custom-controls.component';
 import { StaticImage2Component } from './component/example/static-image2/static-image2.component';
 import { D3Component } from './component/example/d3/d3.component';
+import { RotateNorthControlComponent } from './component/example/custom-controls/rotate-north-control/rotate-north-control.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { D3Component } from './component/example/d3/d3.component';
     MousePositionComponent,
     CustomControlsComponent,
     StaticImage2Component,
-    D3Component
+    D3Component,
+    RotateNorthControlComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,7 @@ import { D3Component } from './component/example/d3/d3.component';
     )
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [RotateNorthControlComponent]
 })
 export class AppModule { }
