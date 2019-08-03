@@ -1,14 +1,13 @@
 <p>dashboard works!</p>
 <h3>Top Heroes</h3>
 <div class="grid grid-pad">
-    <a *ngFor="let example of examples" class="col-1-4" routerLink="/example/{{example.id}}">
-        <!--
-        {{example.id}}<br>
-        {{example.description}}<br>
-        {{example.fileName}}<br>
-        -->
-        <div class="module hero">
-            <h4>{{example.name}}</h4>
-        </div>
+    <a *ngFor="let example of examples" class="'example'" routerLink="/example/{{example.id}}">
+        <span class=mainlink>
+            <p>{{example.name}}</p>
+            <!--
+            <p>{{example.fileName}}</p>
+            <p>{{example.description}}</p>
+            -->
+        </span>
     </a>
 </div>

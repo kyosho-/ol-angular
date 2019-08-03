@@ -3,6 +3,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +24,8 @@ import { CustomControlsComponent } from './component/example/custom-controls/cus
 import { StaticImage2Component } from './component/example/static-image2/static-image2.component';
 import { D3Component } from './component/example/d3/d3.component';
 import { RotateNorthControlComponent } from './component/example/custom-controls/rotate-north-control/rotate-north-control.component';
+import { NavigationMainComponent } from './component/navigation/navigation-main/navigation-main.component';
+import { NavigationSidenavComponent } from './component/navigation/navigation-sidenav/navigation-sidenav.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,9 @@ import { RotateNorthControlComponent } from './component/example/custom-controls
     CustomControlsComponent,
     StaticImage2Component,
     D3Component,
-    RotateNorthControlComponent
+    RotateNorthControlComponent,
+    NavigationMainComponent,
+    NavigationSidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,9 @@ import { RotateNorthControlComponent } from './component/example/custom-controls
     BrowserAnimationsModule,
     HttpClientInMemoryWebApiModule.forRoot(
       ExampleInMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    MatToolbarModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent],
