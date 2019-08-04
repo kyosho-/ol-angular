@@ -1,2 +1,14 @@
-<mat-toolbar color="primary">My App</mat-toolbar>
-<app-navigation-sidenav></app-navigation-sidenav>
+<mat-toolbar color="primary">
+    My App
+    <button type="button" mat-button (click)="drawer.toggle()">
+        Toggle sidenav
+    </button>
+</mat-toolbar>
+<mat-drawer-container autosize>
+    <mat-drawer #drawer mode="side" opened>
+        <app-dashboard></app-dashboard>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

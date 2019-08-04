@@ -1,8 +1,8 @@
-import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ComponentFactory } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ComponentFactory, HostListener } from '@angular/core';
 
 import Map from 'ol/Map';
 import View from 'ol/View';
-import { defaults as defaultControls, Control } from 'ol/control';
+import { defaults as defaultControls } from 'ol/control';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import { RotateNorthControlComponent } from './rotate-north-control/rotate-north-control.component';

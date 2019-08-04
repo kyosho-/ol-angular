@@ -25,7 +25,6 @@ import { StaticImage2Component } from './component/example/static-image2/static-
 import { D3Component } from './component/example/d3/d3.component';
 import { RotateNorthControlComponent } from './component/example/custom-controls/rotate-north-control/rotate-north-control.component';
 import { NavigationMainComponent } from './component/navigation/navigation-main/navigation-main.component';
-import { NavigationSidenavComponent } from './component/navigation/navigation-sidenav/navigation-sidenav.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +39,7 @@ import { NavigationSidenavComponent } from './component/navigation/navigation-si
     StaticImage2Component,
     D3Component,
     RotateNorthControlComponent,
-    NavigationMainComponent,
-    NavigationSidenavComponent
+    NavigationMainComponent
   ],
   imports: [
     BrowserModule,
