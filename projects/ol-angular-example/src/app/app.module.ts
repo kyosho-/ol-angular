@@ -25,6 +25,8 @@ import { StaticImage2Component } from './component/example/static-image2/static-
 import { D3Component } from './component/example/d3/d3.component';
 import { RotateNorthControlComponent } from './component/example/custom-controls/rotate-north-control/rotate-north-control.component';
 import { NavigationMainComponent } from './component/navigation/navigation-main/navigation-main.component';
+import { CenterIconControlComponent } from './component/example/custom-controls2/center-icon-control/center-icon-control.component';
+import { CustomControls2Component } from './component/example/custom-controls2/custom-controls2.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { NavigationMainComponent } from './component/navigation/navigation-main/
     StaticImage2Component,
     D3Component,
     RotateNorthControlComponent,
-    NavigationMainComponent
+    NavigationMainComponent,
+    CenterIconControlComponent,
+    CustomControls2Component
   ],
   imports: [
     BrowserModule,
@@ -54,6 +58,9 @@ import { NavigationMainComponent } from './component/navigation/navigation-main/
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [RotateNorthControlComponent]
+  entryComponents: [
+    RotateNorthControlComponent,
+    CenterIconControlComponent
+  ]
 })
 export class AppModule { }

@@ -1,0 +1,29 @@
+.reticle {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+.image-reticle {
+    margin: 0;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    background-image: url('reticle.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.blink {
+    animation: keyframes-opacity 2s ease infinite;
+}
+
+@keyframes keyframes-opacity {
+    0%   {opacity: 0.3}
+    50%  {opacity: 1.0}
+    100% {opacity: 0.3}
+}
