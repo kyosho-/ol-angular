@@ -1,0 +1,37 @@
+<svg width="500px" height="500px" 
+    xmlns="http://www.w3.org/2000/svg" version="1.1" 
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g>
+        <svg x="40px" y="40px" width="420px" height="420px">
+            <path d="
+    M   0  10 H  80 
+    M 160  10 H 260
+    M 340  10 H 420
+
+    M 410   0 V  80
+    M 410 160 V 260
+    M 410 340 V 420
+
+    M 400 410 H 340
+    M 260 410 H 160
+    M  80 410 H   0
+
+    M  10 410 V 340
+    M  10 260 V 160
+    M  10  80 V   0" stroke="red" stroke-width="20"/>
+        </svg>
+        <svg x="0px" y="0px">
+            <path d="
+    M   0 250 H  40
+    M 120 250 H 200
+    M 300 250 H 380
+    M 460 250 H 500
+
+    M 250   0 V  40
+    M 250 120 V 200
+    M 250 300 V 380
+    M 250 460 V 500
+    " stroke="red" stroke-width="20"/>
+        </svg>
+    </g>
+</svg>

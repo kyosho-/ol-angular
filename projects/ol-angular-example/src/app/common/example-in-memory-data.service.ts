@@ -27,6 +27,12 @@ export class ExampleInMemoryDataService implements InMemoryDbService {
         description: 'Shows how to create custom contorls.'
       },
       {
+        id: 'custom-controls2',
+        fileName: 'custom-controls2.html',
+        name: 'Custom Controls2',
+        description: 'Shows how to create custom contorls.'
+      },
+      {
         id: 'd3',
         fileName: 'd3.html',
         name: 'd3 Integration',

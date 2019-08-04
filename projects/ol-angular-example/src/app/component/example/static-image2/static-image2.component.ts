@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ComponentFactory, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -8,6 +8,9 @@ import Projection from 'ol/proj/Projection';
 import Static from 'ol/source/ImageStatic';
 import { MapBrowserPointerEvent } from 'ol';
 import { ObjectEvent } from 'ol/Object';
+import { defaults as defaultControls } from 'ol/control';
+
+import { CenterIconControlComponent } from '../custom-controls2/center-icon-control/center-icon-control.component';
 
 @Component({
   selector: 'app-static-image2',
@@ -31,22 +34,34 @@ export class StaticImage2Component implements OnInit, OnDestroy {
 
   private map: Map;
 
-  constructor() { }
+  private factory: ComponentFactory<CenterIconControlComponent>;
+
+  constructor(
+    private viewContainerRef: ViewContainerRef,
+    private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
+    this.factory = this.componentFactoryResolver.resolveComponentFactory(
+      CenterIconControlComponent);
+
+    const componentRef = this.viewContainerRef.createComponent(this.factory);
+
     this.map = new Map({
+      controls: defaultControls().extend([
+        componentRef.instance
+      ]),
       layers: [
         new ImageLayer({
           source: new Static({
             // attributions: '© <a href="http://xkcd.com/license.html">xkcd</a>',
-            url: 'https://imgs.xkcd.com/comics/online_communities.png',
+            // url: 'https://imgs.xkcd.com/comics/online_communities.png',
+            url: './assets/data/online_communities.png',
             projection: StaticImage2Component.projection,
             imageExtent: StaticImage2Component.extent
           })
         })
       ],
       target: 'map',
-      controls: [],
       view: new View({
         projection: StaticImage2Component.projection,
         center: getCenter(StaticImage2Component.extent),
