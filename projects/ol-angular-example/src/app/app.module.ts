@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
@@ -54,7 +56,9 @@ import { CustomControls2Component } from './component/example/custom-controls2/c
       ExampleInMemoryDataService, { dataEncapsulation: false }
     ),
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],

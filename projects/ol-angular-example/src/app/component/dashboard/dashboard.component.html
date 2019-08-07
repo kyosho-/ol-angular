@@ -1,12 +1,11 @@
-<h3>Examples</h3>
 <div class="grid grid-pad">
     <a *ngFor="let example of examples" class="'example'" routerLink="/example/{{example.id}}">
-        <span class=mainlink>
-            <p>{{example.name}}</p>
+        <div>
+            {{example.name}}
             <!--
             <p>{{example.fileName}}</p>
             <p>{{example.description}}</p>
             -->
-        </span>
+        </div>
     </a>
 </div>

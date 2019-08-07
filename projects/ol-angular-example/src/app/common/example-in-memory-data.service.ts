@@ -26,12 +26,12 @@ export class ExampleInMemoryDataService implements InMemoryDbService {
         name: 'Custom Controls',
         description: 'Shows how to create custom contorls.'
       },
-      {
-        id: 'custom-controls2',
-        fileName: 'custom-controls2.html',
-        name: 'Custom Controls2',
-        description: 'Shows how to create custom contorls.'
-      },
+      // {
+      //   id: 'custom-controls2',
+      //   fileName: 'custom-controls2.html',
+      //   name: 'Custom Controls2',
+      //   description: 'Shows how to create custom contorls.'
+      // },
       {
         id: 'd3',
         fileName: 'd3.html',
@@ -55,12 +55,12 @@ export class ExampleInMemoryDataService implements InMemoryDbService {
         fileName: 'static-image.html',
         name: 'Static Image',
         description: 'Example of a static image layer.'
-      },
-      {
-        id: 'static-image2',
-        fileName: 'static-image2.html',
-        name: 'Static Image2',
-        description: 'Example of a static image layer.'
+        // },
+        // {
+        //   id: 'static-image2',
+        //   fileName: 'static-image2.html',
+        //   name: 'Static Image2',
+        //   description: 'Example of a static image layer.'
       }
     ];
     return { examples };
