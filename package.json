@@ -4,10 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build-exa": "npx ng build ol-angular-example --baseHref=/ol-angular/ol-angular-example/ --prod=true",
+    "build-lib": "npx ng build ol-angular --baseHref=/ol-angular/ol-angular-example/ --prod=true",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "doc-exa": "npx compodoc -c .compodocrc-ol-angular-example.yaml",
+    "doc-lib": "npx compodoc -c .compodocrc-ol-angular.yaml"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +40,7 @@
     "@angular/cli": "~8.1.1",
     "@angular/compiler-cli": "~8.1.1",
     "@angular/language-service": "~8.1.1",
+    "@compodoc/compodoc": "^1.1.10",
     "@types/d3": "^5.7.2",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",

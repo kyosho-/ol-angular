@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ol-angular-example",
+            "outputPath": "../gh-pages/ol-angular-example",
             "index": "projects/ol-angular-example/src/index.html",
             "main": "projects/ol-angular-example/src/main.ts",
             "polyfills": "projects/ol-angular-example/src/polyfills.ts",

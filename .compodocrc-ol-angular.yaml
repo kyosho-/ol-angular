@@ -1,0 +1,10 @@
+tsconfig: projects/ol-angular/tsconfig.lib.json
+output: ../gh-pages/documentation/ol-angular
+name: ol-angular API Documentation
+theme: material
+hideGenerator: true
+disablePrivate: true
+disableProtected: true
+disableInternal: true
+customFavicon: ""
+customLogo: ""
