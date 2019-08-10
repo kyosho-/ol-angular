@@ -26,6 +26,12 @@ export class ExampleInMemoryDataService implements InMemoryDbService {
         name: 'Custom Controls',
         description: 'Shows how to create custom contorls.'
       },
+      {
+        id: 'attributions',
+        fileName: 'attribution.html',
+        name: 'Attributions',
+        description: 'Example of a attributions visibily change on map resize. to collapse them on small maps.'
+      },
       // {
       //   id: 'custom-controls2',
       //   fileName: 'custom-controls2.html',
