@@ -12,10 +12,12 @@ import { StaticImageComponent } from './content/example/static-image/static-imag
 import { StaticImage2Component } from './content/example/static-image2/static-image2.component';
 import { D3Component } from './content/example/d3/d3.component';
 import { AttributionsComponent } from './content/example/attributions/attributions.component';
+import { LicenseComponent } from './content/license/license.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/introduction', pathMatch: 'full' },
   { path: 'introduction', component: IntroductionComponent },
+  { path: 'license', component: LicenseComponent },
   { path: 'example/animation', component: AnimationComponent },
   { path: 'example/arcgis-tiled', component: ArcgisTiledComponent },
   { path: 'example/attributions', component: AttributionsComponent },

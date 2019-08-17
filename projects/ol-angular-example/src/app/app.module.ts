@@ -21,13 +21,15 @@ import { NavigationComponent } from './main/navigation/navigation.component';
 
 import { ExampleModule } from './content/example/example.module';
 import { IntroductionComponent } from './content/introduction/introduction.component';
+import { LicenseComponent } from './content/license/license.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     NavigationComponent,
-    IntroductionComponent
+    IntroductionComponent,
+    LicenseComponent
   ],
   imports: [
     BrowserModule,
