@@ -7,6 +7,7 @@ import MousePosition from 'ol/control/MousePosition';
 import { createStringXY } from 'ol/coordinate';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
+import { MainService } from '../../../main/main.service';
 
 @Component({
   selector: 'app-mouse-position',
@@ -19,9 +20,17 @@ export class MousePositionComponent implements OnInit {
 
   private mousePositionControl: MousePosition;
 
-  constructor() { }
+  constructor(private mainService: MainService) { }
 
   ngOnInit() {
+    // Handle opened and closed event of navigation side bar.
+    this.mainService.navigationChanged$.subscribe(
+      (opened: boolean) => {
+        // Resize map.
+        this.map.updateSize();
+      }
+    );
+
     this.mousePositionControl = new MousePosition({
       coordinateFormat: createStringXY(4),
       projection: 'EPSG:4326',

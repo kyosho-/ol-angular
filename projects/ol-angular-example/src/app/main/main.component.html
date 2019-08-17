@@ -8,7 +8,7 @@
     </button>
 </mat-toolbar>
 <mat-drawer-container autosize>
-    <mat-drawer #drawer mode="side" opened (openedChange)="updateMapSize($event)">
+    <mat-drawer #drawer mode="side" opened (openedChange)="mainService.changeNavigation($event)">
         <app-navigation></app-navigation>
     </mat-drawer>
     <mat-drawer-content>

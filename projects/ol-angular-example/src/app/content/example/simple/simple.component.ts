@@ -4,6 +4,7 @@ import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
+import { MainService } from '../../../main/main.service';
 
 @Component({
   selector: 'app-simple',
@@ -14,9 +15,17 @@ export class SimpleComponent implements OnInit {
 
   private map: Map;
 
-  constructor() { }
+  constructor(private mainService: MainService) { }
 
   ngOnInit() {
+    // Handle opened and closed event of navigation side bar.
+    this.mainService.navigationChanged$.subscribe(
+      (opened: boolean) => {
+        // Resize map.
+        this.map.updateSize();
+      }
+    );
+
     this.map = new Map({
       layers: [
         new TileLayer({

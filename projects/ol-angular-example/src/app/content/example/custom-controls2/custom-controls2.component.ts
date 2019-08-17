@@ -6,6 +6,7 @@ import { defaults as defaultControls } from 'ol/control';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import { CenterIconControlComponent } from './center-icon-control/center-icon-control.component';
+import { MainService } from '../../../main/main.service';
 
 @Component({
   selector: 'app-custom-controls2',
@@ -19,10 +20,19 @@ export class CustomControls2Component implements OnInit {
   private factory: ComponentFactory<CenterIconControlComponent>;
 
   constructor(
+    private mainService: MainService,
     private viewContainerRef: ViewContainerRef,
     private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
+    // Handle opened and closed event of navigation side bar.
+    this.mainService.navigationChanged$.subscribe(
+      (opened: boolean) => {
+        // Resize map.
+        this.map.updateSize();
+      }
+    );
+
     this.factory = this.componentFactoryResolver.resolveComponentFactory(
       CenterIconControlComponent);
 

@@ -11,6 +11,7 @@ import { ObjectEvent } from 'ol/Object';
 import { defaults as defaultControls } from 'ol/control';
 
 import { CenterIconControlComponent } from '../custom-controls2/center-icon-control/center-icon-control.component';
+import { MainService } from '../../../main/main.service';
 
 @Component({
   selector: 'app-static-image2',
@@ -37,10 +38,19 @@ export class StaticImage2Component implements OnInit, OnDestroy {
   private factory: ComponentFactory<CenterIconControlComponent>;
 
   constructor(
+    private mainService: MainService,
     private viewContainerRef: ViewContainerRef,
     private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
+    // Handle opened and closed event of navigation side bar.
+    this.mainService.navigationChanged$.subscribe(
+      (opened: boolean) => {
+        // Resize map.
+        this.map.updateSize();
+      }
+    );
+
     this.factory = this.componentFactoryResolver.resolveComponentFactory(
       CenterIconControlComponent);
 

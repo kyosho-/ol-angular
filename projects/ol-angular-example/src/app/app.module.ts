@@ -13,7 +13,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { ExampleInMemoryDataService } from './common/example-in-memory-data.service';
+import { ExampleInMemoryDataService } from './content/example/example-in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';

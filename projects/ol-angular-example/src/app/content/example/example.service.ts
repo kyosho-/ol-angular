@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Example } from './example';
-import { MessageService } from './message.service';
+import { MessageService } from '../../common/message.service';
 
 @Injectable({
   providedIn: 'root'

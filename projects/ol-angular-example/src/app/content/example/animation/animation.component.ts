@@ -6,6 +6,7 @@ import { easeIn, easeOut } from 'ol/easing';
 import TileLayer from 'ol/layer/Tile';
 import { fromLonLat } from 'ol/proj';
 import OSM from 'ol/source/OSM';
+import { MainService } from '../../../main/main.service';
 
 @Component({
   selector: 'app-animation',
@@ -23,9 +24,17 @@ export class AnimationComponent implements OnInit {
   private map: Map;
   private view: View;
 
-  constructor() { }
+  constructor(private mainService: MainService) { }
 
   ngOnInit() {
+    // Handle opened and closed event of navigation side bar.
+    this.mainService.navigationChanged$.subscribe(
+      (opened: boolean) => {
+        // Resize map.
+        this.map.updateSize();
+      }
+    );
+
     this.view = new View({
       center: AnimationComponent.istanbul,
       zoom: 6
@@ -197,11 +206,5 @@ export class AnimationComponent implements OnInit {
       }
     };
     next(true);
-  }
-
-  render() {
-    console.log('hoge');
-    // this.map.render();
-    this.map.updateSize();
   }
 }

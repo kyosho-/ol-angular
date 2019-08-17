@@ -15,6 +15,7 @@ import * as topojson from 'topojson';
 
 import { from } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MainService } from '../../../main/main.service';
 
 @Component({
   selector: 'app-d3',
@@ -25,9 +26,17 @@ export class D3Component implements OnInit {
 
   private map: Map;
 
-  constructor() { }
+  constructor(private mainService: MainService) { }
 
   ngOnInit() {
+    // Handle opened and closed event of navigation side bar.
+    this.mainService.navigationChanged$.subscribe(
+      (opened: boolean) => {
+        // Resize map.
+        this.map.updateSize();
+      }
+    );
+
     this.map = new Map({
       layers: [
         new TileLayer({
