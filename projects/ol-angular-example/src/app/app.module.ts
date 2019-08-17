@@ -7,6 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
@@ -15,16 +16,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { ExampleInMemoryDataService } from './common/example-in-memory-data.service';
 
 import { AppComponent } from './app.component';
-import { NavigationMainComponent } from './component/navigation/navigation-main/navigation-main.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { MainComponent } from './main/main.component';
+import { NavigationComponent } from './main/navigation/navigation.component';
 
 import { ExampleModule } from './component/example/example.module';
+import { IntroductionComponent } from './content/introduction/introduction.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationMainComponent,
-    DashboardComponent
+    MainComponent,
+    NavigationComponent,
+    IntroductionComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { ExampleModule } from './component/example/example.module';
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],

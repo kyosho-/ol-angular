@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { IntroductionComponent } from './content/introduction/introduction.component';
 import { AnimationComponent } from './component/example/animation/animation.component';
 import { ArcgisTiledComponent } from './component/example/arcgis-tiled/arcgis-tiled.component';
 import { CustomControlsComponent } from './component/example/custom-controls/custom-controls.component';
@@ -14,8 +14,8 @@ import { D3Component } from './component/example/d3/d3.component';
 import { AttributionsComponent } from './component/example/attributions/attributions.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: '', redirectTo: '/introduction', pathMatch: 'full' },
+  { path: 'introduction', component: IntroductionComponent },
   { path: 'example/animation', component: AnimationComponent },
   { path: 'example/arcgis-tiled', component: ArcgisTiledComponent },
   { path: 'example/attributions', component: AttributionsComponent },

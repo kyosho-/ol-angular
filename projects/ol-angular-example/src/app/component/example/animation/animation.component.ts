@@ -198,4 +198,10 @@ export class AnimationComponent implements OnInit {
     };
     next(true);
   }
+
+  render() {
+    console.log('hoge');
+    // this.map.render();
+    this.map.updateSize();
+  }
 }

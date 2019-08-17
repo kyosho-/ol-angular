@@ -1,12 +1,15 @@
 <mat-toolbar color="primary">
+    Openlayers Examples with Angular
     <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon>list</mat-icon>
     </button>
-    Openlayers Examples with Angular
+    <button mat-icon-button routerLink="">
+        <mat-icon>home</mat-icon>
+    </button>
 </mat-toolbar>
 <mat-drawer-container autosize>
-    <mat-drawer #drawer mode="side" opened>
-        <app-dashboard></app-dashboard>
+    <mat-drawer #drawer mode="side" opened (openedChange)="updateMapSize($event)">
+        <app-navigation></app-navigation>
     </mat-drawer>
     <mat-drawer-content>
         <router-outlet></router-outlet>

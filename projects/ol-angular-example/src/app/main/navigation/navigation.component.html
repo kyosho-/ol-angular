@@ -1,0 +1,17 @@
+<div class="grid grid-pad">
+    <mat-nav-list dense>
+        <mat-list-item routerLink="">
+            <mat-icon mat-list-icon>home</mat-icon>
+            <h4 mat-line>Home</h4>
+        </mat-list-item>
+        <h3 mat-subheader>ol</h3>
+        <mat-list-item *ngFor="let example of examples$ | async" routerLink="/example/{{example.id}}">
+            <mat-icon mat-list-icon>map</mat-icon>
+            <h4 mat-line>{{example.name}}</h4>
+            <p mat-line> ({{example.fileName}}) </p>
+            <p mat-line> {{example.description}} </p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <h3 mat-subheader>ol-angular</h3>
+    </mat-nav-list>
+</div>
