@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IntroductionComponent } from './content/introduction/introduction.component';
-import { AnimationComponent } from './component/example/animation/animation.component';
-import { ArcgisTiledComponent } from './component/example/arcgis-tiled/arcgis-tiled.component';
-import { CustomControlsComponent } from './component/example/custom-controls/custom-controls.component';
-import { CustomControls2Component } from './component/example/custom-controls2/custom-controls2.component';
-import { MousePositionComponent } from './component/example/mouse-position/mouse-position.component';
-import { SimpleComponent } from './component/example/simple/simple.component';
-import { StaticImageComponent } from './component/example/static-image/static-image.component';
-import { StaticImage2Component } from './component/example/static-image2/static-image2.component';
-import { D3Component } from './component/example/d3/d3.component';
-import { AttributionsComponent } from './component/example/attributions/attributions.component';
+import { AnimationComponent } from './content/example/animation/animation.component';
+import { ArcgisTiledComponent } from './content/example/arcgis-tiled/arcgis-tiled.component';
+import { CustomControlsComponent } from './content/example/custom-controls/custom-controls.component';
+import { CustomControls2Component } from './content/example/custom-controls2/custom-controls2.component';
+import { MousePositionComponent } from './content/example/mouse-position/mouse-position.component';
+import { SimpleComponent } from './content/example/simple/simple.component';
+import { StaticImageComponent } from './content/example/static-image/static-image.component';
+import { StaticImage2Component } from './content/example/static-image2/static-image2.component';
+import { D3Component } from './content/example/d3/d3.component';
+import { AttributionsComponent } from './content/example/attributions/attributions.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/introduction', pathMatch: 'full' },

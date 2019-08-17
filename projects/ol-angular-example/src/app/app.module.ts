@@ -19,7 +19,7 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { NavigationComponent } from './main/navigation/navigation.component';
 
-import { ExampleModule } from './component/example/example.module';
+import { ExampleModule } from './content/example/example.module';
 import { IntroductionComponent } from './content/introduction/introduction.component';
 
 @NgModule({
