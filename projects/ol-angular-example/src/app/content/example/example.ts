@@ -3,4 +3,5 @@ export interface Example {
     name: string;
     fileName: string;
     description: string;
+    url: string;
 }

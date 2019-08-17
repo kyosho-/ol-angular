@@ -10,15 +10,15 @@ import { MapBrowserPointerEvent } from 'ol';
 import { ObjectEvent } from 'ol/Object';
 import { defaults as defaultControls } from 'ol/control';
 
-import { CenterIconControlComponent } from '../custom-controls2/center-icon-control/center-icon-control.component';
+import { ReticleControlComponent } from '../reticle-control/reticle-control.component';
 import { MainService } from '../../../main/main.service';
 
 @Component({
-  selector: 'app-static-image2',
-  templateUrl: './static-image2.component.html',
-  styleUrls: ['./static-image2.component.css']
+  selector: 'app-reticle',
+  templateUrl: './reticle.component.html',
+  styleUrls: ['./reticle.component.css']
 })
-export class StaticImage2Component implements OnInit, OnDestroy {
+export class ReticleComponent implements OnInit, OnDestroy {
 
   // Map views always need a projection.  Here we just want to map image
   // coordinates directly to map coordinates, so we create a projection that uses
@@ -29,13 +29,16 @@ export class StaticImage2Component implements OnInit, OnDestroy {
   public static readonly projection = new Projection({
     code: 'xkcd-image',
     units: 'pixels',
-    extent: StaticImage2Component.extent,
+    extent: ReticleComponent.extent,
     axisOrientation: 'esu'
   });
 
   private map: Map;
 
-  private factory: ComponentFactory<CenterIconControlComponent>;
+  private factory: ComponentFactory<ReticleControlComponent>;
+
+  xCenter: number;
+  yCenter: number;
 
   constructor(
     private mainService: MainService,
@@ -52,7 +55,7 @@ export class StaticImage2Component implements OnInit, OnDestroy {
     );
 
     this.factory = this.componentFactoryResolver.resolveComponentFactory(
-      CenterIconControlComponent);
+      ReticleControlComponent);
 
     const componentRef = this.viewContainerRef.createComponent(this.factory);
 
@@ -66,22 +69,23 @@ export class StaticImage2Component implements OnInit, OnDestroy {
             // attributions: '© <a href="http://xkcd.com/license.html">xkcd</a>',
             // url: 'https://imgs.xkcd.com/comics/online_communities.png',
             url: './assets/data/online_communities.png',
-            projection: StaticImage2Component.projection,
-            imageExtent: StaticImage2Component.extent
+            projection: ReticleComponent.projection,
+            imageExtent: ReticleComponent.extent
           })
         })
       ],
       target: 'map',
       view: new View({
-        projection: StaticImage2Component.projection,
-        center: getCenter(StaticImage2Component.extent),
+        projection: ReticleComponent.projection,
+        center: getCenter(ReticleComponent.extent),
+        extent: ReticleComponent.extent,
         zoom: 2,
         maxZoom: 8
       })
     });
 
     this.map.on('singleclick', this.singleClick);
-    this.map.getView().on('change:center', this.changeCenter);
+    this.map.getView().on('change:center', (event: ObjectEvent) => this.changeCenter(event));
   }
 
   ngOnDestroy() {
@@ -91,13 +95,15 @@ export class StaticImage2Component implements OnInit, OnDestroy {
   singleClick(event: MapBrowserPointerEvent) {
     console.log(event);
     const coordinate = event.coordinate;
-    console.log([coordinate[0], StaticImage2Component.extent[3] - coordinate[1]]);
+    console.log([coordinate[0], ReticleComponent.extent[3] - coordinate[1]]);
   }
 
   changeCenter(event: ObjectEvent) {
     // console.log(event);
     // console.log((event.target as View).getCenter());
     const coordinate = (event.target as View).getCenter();
-    console.log([coordinate[0], StaticImage2Component.extent[3] - coordinate[1]]);
+    // console.log([coordinate[0], ReticleComponent.extent[3] - coordinate[1]]);
+    this.xCenter = coordinate[0];
+    this.yCenter = ReticleComponent.extent[3] - coordinate[1];
   }
 }

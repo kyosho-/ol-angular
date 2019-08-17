@@ -8,11 +8,8 @@ import { SimpleComponent } from './simple/simple.component';
 import { StaticImageComponent } from './static-image/static-image.component';
 import { MousePositionComponent } from './mouse-position/mouse-position.component';
 import { CustomControlsComponent } from './custom-controls/custom-controls.component';
-import { StaticImage2Component } from './static-image2/static-image2.component';
 import { D3Component } from './d3/d3.component';
 import { RotateNorthControlComponent } from './custom-controls/rotate-north-control/rotate-north-control.component';
-import { CenterIconControlComponent } from './custom-controls2/center-icon-control/center-icon-control.component';
-import { CustomControls2Component } from './custom-controls2/custom-controls2.component';
 import { AttributionsComponent } from './attributions/attributions.component';
 import { BingMapsComponent } from './bing-maps/bing-maps.component';
 import { CanvasTilesComponent } from './canvas-tiles/canvas-tiles.component';
@@ -174,6 +171,7 @@ import { WmtsHidpiComponent } from './wmts-hidpi/wmts-hidpi.component';
 import { ZoomsliderComponent } from './zoomslider/zoomslider.component';
 import { VectorLabelsComponent } from './vector-labels/vector-labels.component';
 import { CanvasGradientPatternComponent } from './canvas-gradient-pattern/canvas-gradient-pattern.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -183,11 +181,8 @@ import { CanvasGradientPatternComponent } from './canvas-gradient-pattern/canvas
     StaticImageComponent,
     MousePositionComponent,
     CustomControlsComponent,
-    StaticImage2Component,
     D3Component,
     RotateNorthControlComponent,
-    CenterIconControlComponent,
-    CustomControls2Component,
     AttributionsComponent,
     BingMapsComponent,
     CanvasTilesComponent,
@@ -350,11 +345,11 @@ import { CanvasGradientPatternComponent } from './canvas-gradient-pattern/canvas
     CanvasGradientPatternComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatTabsModule
   ],
   entryComponents: [
-    RotateNorthControlComponent,
-    CenterIconControlComponent
+    RotateNorthControlComponent
   ]
 })
 export class ExampleModule { }

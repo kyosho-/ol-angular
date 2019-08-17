@@ -1,23 +1,21 @@
-import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ComponentFactory, HostListener } from '@angular/core';
-
-import Map from 'ol/Map';
-import View from 'ol/View';
-import { defaults as defaultControls } from 'ol/control';
-import TileLayer from 'ol/layer/Tile';
-import OSM from 'ol/source/OSM';
-import { CenterIconControlComponent } from './center-icon-control/center-icon-control.component';
+import { Component, OnInit, ViewContainerRef, ComponentFactoryResolver, ComponentFactory } from '@angular/core';
 import { MainService } from '../../../main/main.service';
 
+import { Map, View } from 'ol';
+import TileLayer from 'ol/layer/Tile';
+import OSM from 'ol/source/OSM';
+import { defaults as defaultControls } from 'ol/control';
+
+import { ZoomControlComponent } from '../zoom-control/zoom-control.component';
+
 @Component({
-  selector: 'app-custom-controls2',
-  templateUrl: './custom-controls2.component.html',
-  styleUrls: ['./custom-controls2.component.css']
+  selector: 'app-zoom',
+  templateUrl: './zoom.component.html',
+  styleUrls: ['./zoom.component.css']
 })
-export class CustomControls2Component implements OnInit {
-
+export class ZoomComponent implements OnInit {
   private map: Map;
-
-  private factory: ComponentFactory<CenterIconControlComponent>;
+  private factory: ComponentFactory<ZoomControlComponent>;
 
   constructor(
     private mainService: MainService,
@@ -34,12 +32,14 @@ export class CustomControls2Component implements OnInit {
     );
 
     this.factory = this.componentFactoryResolver.resolveComponentFactory(
-      CenterIconControlComponent);
+      ZoomControlComponent);
 
     const componentRef = this.viewContainerRef.createComponent(this.factory);
 
     this.map = new Map({
-      controls: defaultControls().extend([
+      controls: defaultControls({
+        zoom: false
+      }).extend([
         componentRef.instance
       ]),
       layers: [
@@ -50,8 +50,7 @@ export class CustomControls2Component implements OnInit {
       target: 'map',
       view: new View({
         center: [0, 0],
-        zoom: 3,
-        rotation: 1
+        zoom: 2
       })
     });
   }

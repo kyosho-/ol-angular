@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CenterIconControlComponent } from './center-icon-control.component';
+import { ZoomComponent } from './zoom.component';
 
-describe('CenterIconControlComponent', () => {
-  let component: CenterIconControlComponent;
-  let fixture: ComponentFixture<CenterIconControlComponent>;
+describe('ZoomComponent', () => {
+  let component: ZoomComponent;
+  let fixture: ComponentFixture<ZoomComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CenterIconControlComponent ]
+      declarations: [ ZoomComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CenterIconControlComponent);
+    fixture = TestBed.createComponent(ZoomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

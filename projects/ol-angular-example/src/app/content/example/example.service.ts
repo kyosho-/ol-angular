@@ -47,7 +47,7 @@ export class ExampleService {
   }
 
   /** IDによりヒーローを取得する。見つからなかった場合は404を返却する。 */
-  getExample(id: number): Observable<Example> {
+  getExample(id: string): Observable<Example> {
     const url = `${this.EexamplesUrl}/${id}`;
     return this.http.get<Example>(url).pipe(
       tap(_ => this.log(`fetched Example id=${id}`)),

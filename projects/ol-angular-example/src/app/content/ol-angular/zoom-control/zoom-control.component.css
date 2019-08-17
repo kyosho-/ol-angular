@@ -1,0 +1,15 @@
+.rotate-north {
+    /* top left */
+    top: 5px;
+    left: .5em;
+}
+
+.ol-touch .rotate-north {
+    top: 80px;
+}
+
+* >>> .mat-mini-fab .mat-button-wrapper {
+    padding: 0 !important;
+    display: inline-block;
+    line-height: 24px;
+}

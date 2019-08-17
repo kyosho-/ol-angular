@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StaticImage2Component } from './static-image2.component';
+import { ReticleComponent } from './reticle.component';
 
-describe('StaticImage2Component', () => {
-  let component: StaticImage2Component;
-  let fixture: ComponentFixture<StaticImage2Component>;
+describe('ReticleComponent', () => {
+  let component: ReticleComponent;
+  let fixture: ComponentFixture<ReticleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StaticImage2Component ]
+      declarations: [ ReticleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StaticImage2Component);
+    fixture = TestBed.createComponent(ReticleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

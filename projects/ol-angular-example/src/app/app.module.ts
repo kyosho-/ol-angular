@@ -14,12 +14,12 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
 
 import { ExampleInMemoryDataService } from './content/example/example-in-memory-data.service';
+import { ExampleModule } from './content/example/example.module';
+import { OlAngularModule } from './content/ol-angular/ol-angular.module';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { NavigationComponent } from './main/navigation/navigation.component';
-
-import { ExampleModule } from './content/example/example.module';
 import { IntroductionComponent } from './content/introduction/introduction.component';
 import { LicenseComponent } from './content/license/license.component';
 
@@ -40,6 +40,7 @@ import { LicenseComponent } from './content/license/license.component';
       ExampleInMemoryDataService, { dataEncapsulation: false }
     ),
     ExampleModule,
+    OlAngularModule,
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
