@@ -56,6 +56,13 @@ export class ExampleInMemoryDataService implements InMemoryDbService {
         url: 'https://openlayers.org/en/latest/examples/'
       },
       {
+        id: 'icon-negative',
+        fileName: 'icon-negative.html',
+        name: 'Icon Pixel Operations',
+        description: 'Canvas pixel operations on a point icon.',
+        url: 'https://openlayers.org/en/latest/examples/'
+      },
+      {
         id: 'mouse-position',
         fileName: 'mouse-position.html',
         name: 'Mouse Position',

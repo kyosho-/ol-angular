@@ -6,8 +6,8 @@
 
 <a class="skiplink" href="#map">Go to map</a>
 <div id="map" class="map"></div>
-<button id="zoom-out" (click)="zoomOut()">Zoom out</button>
-<button id="zoom-in" (click)="zoomIn()">Zoom in</button>
+<button id="zoom-out" (click)="zoomOut($event)">Zoom out</button>
+<button id="zoom-in" (click)="zoomIn($event)">Zoom in</button>
 
 <p>
     This page's map element has its tabindex attribute set to "0", that makes it focusable. To focus the map element you

@@ -14,6 +14,7 @@ import { LicenseComponent } from './content/license/license.component';
 import { AccessibleComponent } from './content/example/accessible/accessible.component';
 import { ReticleComponent } from './content/ol-angular/reticle/reticle.component';
 import { ZoomComponent } from './content/ol-angular/zoom/zoom.component';
+import { IconNegativeComponent } from './content/example/icon-negative/icon-negative.component';
 
 const routes: Routes = [
   // contents
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'example/attributions', component: AttributionsComponent },
   { path: 'example/custom-controls', component: CustomControlsComponent },
   { path: 'example/d3', component: D3Component },
+  { path: 'example/icon-negative', component: IconNegativeComponent },
   { path: 'example/mouse-position', component: MousePositionComponent },
   { path: 'example/simple', component: SimpleComponent },
   { path: 'example/static-image', component: StaticImageComponent },

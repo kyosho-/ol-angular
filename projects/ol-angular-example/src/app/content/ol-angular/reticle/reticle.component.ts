@@ -12,6 +12,7 @@ import { defaults as defaultControls } from 'ol/control';
 
 import { ReticleControlComponent } from '../reticle-control/reticle-control.component';
 import { MainService } from '../../../main/main.service';
+import BaseLayer from 'ol/layer/Base';
 
 @Component({
   selector: 'app-reticle',
