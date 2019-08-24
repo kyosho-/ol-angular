@@ -14,11 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-
 import { AppRoutingModule } from './app-routing.module';
 
-import { ExampleInMemoryDataService } from './content/example/example-in-memory-data.service';
 import { ExampleModule } from './content/example/example.module';
 import { OlAngularModule } from './content/ol-angular/ol-angular.module';
 
@@ -53,9 +50,6 @@ export function hljsLanguages() {
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      ExampleInMemoryDataService, { dataEncapsulation: false }
-    ),
     HighlightModule.forRoot({
       languages: hljsLanguages
     }),

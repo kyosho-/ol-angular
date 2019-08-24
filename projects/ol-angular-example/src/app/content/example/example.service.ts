@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable, of, from } from 'rxjs';
+import { catchError, map, tap, filter, first, concatMap, scan, reduce } from 'rxjs/operators';
 
 import { Example } from './example';
 import { MessageService } from '../../common/message.service';
@@ -12,45 +13,35 @@ import { MessageService } from '../../common/message.service';
 })
 export class ExampleService {
 
-  public static readonly HTTP_OPTIONS = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-
-  private EexamplesUrl = 'api/examples';  // Web APIのURL
+  public static readonly EXAMPLES_PATH = 'assets/examples.json';
 
   constructor(
     private http: HttpClient,
+    private location: Location,
     private messageService: MessageService) { }
+
+  get examplesUrl() {
+    const path = this.location.prepareExternalUrl(ExampleService.EXAMPLES_PATH);
+    const url = `${window.location.protocol}//${window.location.host}${path}`;
+    return url;
+  }
 
   /** サーバーからヒーローを取得する */
   getExamples(): Observable<Example[]> {
-    return this.http.get<Example[]>(this.EexamplesUrl)
-      .pipe(
-        // tap(examples => console.log(examples)),
-        tap(examples => this.log('fetched Examples')),
-        catchError(this.handleError<Example[]>('getExamples', []))
-      );
-  }
-
-  /** IDによりヒーローを取得する。idが見つからない場合は`undefined`を返す。 */
-  getExampleNo404<Data>(id: number): Observable<Example> {
-    const url = `${this.EexamplesUrl}/?id=${id}`;
-    return this.http.get<Example[]>(url)
-      .pipe(
-        map(Examplees => Examplees[0]), // {0|1} 要素の配列を返す
-        tap(h => {
-          const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} Example id=${id}`);
-        }),
-        catchError(this.handleError<Example>(`getExample id=${id}`))
-      );
+    return this.http.get<Example[]>(this.examplesUrl, { responseType: 'json' }).pipe(
+      // tap(examples => console.log(examples)),
+      tap(examples => this.log('fetched Examples')),
+      catchError(this.handleError<Example[]>('getExamples', []))
+    );
   }
 
   /** IDによりヒーローを取得する。見つからなかった場合は404を返却する。 */
-  getExample(id: string): Observable<Example> {
-    const url = `${this.EexamplesUrl}/${id}`;
-    return this.http.get<Example>(url).pipe(
-      tap(_ => this.log(`fetched Example id=${id}`)),
+  getExample(id: string): Observable<any> {
+    return this.getExamples().pipe(
+      tap(() => this.log(`fetched Example id=${id}`)),
+      concatMap((value: Example[]) => from(value)),
+      filter((value: Example) => value.id === id),
+      first(),
       catchError(this.handleError<Example>(`getExample id=${id}`))
     );
   }
@@ -61,38 +52,13 @@ export class ExampleService {
       // 検索語がない場合、空のヒーロー配列を返す
       return of([]);
     }
-    return this.http.get<Example[]>(`${this.EexamplesUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`found Examples matching "${term}"`)),
+
+    return this.getExamples().pipe(
+      tap(() => this.log(`search Example term=${term}`)),
+      concatMap((value: Example[]) => from(value)),
+      filter((value: Example) => value.name === term),
+      reduce((acc: Example[], value: Example) => acc.concat(value), []),
       catchError(this.handleError<Example[]>('searchExamples', []))
-    );
-  }
-
-  //////// Save methods //////////
-
-  /** POST: サーバーに新しいヒーローを登録する */
-  addExample(example: Example): Observable<Example> {
-    return this.http.post<Example>(this.EexamplesUrl, example, ExampleService.HTTP_OPTIONS).pipe(
-      tap((newExample: Example) => this.log(`added Example w/ id=${newExample.id}`)),
-      catchError(this.handleError<Example>('addExample'))
-    );
-  }
-
-  /** DELETE: サーバーからヒーローを削除 */
-  deleteExample(example: Example | number): Observable<Example> {
-    const id = typeof example === 'number' ? example : example.id;
-    const url = `${this.EexamplesUrl}/${id}`;
-
-    return this.http.delete<Example>(url, ExampleService.HTTP_OPTIONS).pipe(
-      tap(_ => this.log(`deleted Example id=${id}`)),
-      catchError(this.handleError<Example>('deleteExample'))
-    );
-  }
-
-  /** PUT: サーバー上でヒーローを更新 */
-  updateExample(example: Example): Observable<any> {
-    return this.http.put(this.EexamplesUrl, example, ExampleService.HTTP_OPTIONS).pipe(
-      tap(_ => this.log(`updated Example id=${example.id}`)),
-      catchError(this.handleError<any>('updateExample'))
     );
   }
 

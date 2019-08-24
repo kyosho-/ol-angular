@@ -9,13 +9,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AccessibleDescriptionComponent } from './description/accessible-description.component';
-import { AccessibleComponent } from './accessible/accessible.component';
 import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
     AccessibleDescriptionComponent,
-    AccessibleComponent,
     MapComponent
   ],
   imports: [
