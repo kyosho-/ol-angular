@@ -3,6 +3,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HighlightModule } from 'ngx-highlightjs';
+import css from 'highlight.js/lib/languages/css';
+import xml from 'highlight.js/lib/languages/xml';
+import typescript from 'highlight.js/lib/languages/typescript';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,6 +28,18 @@ import { NavigationComponent } from './main/navigation/navigation.component';
 import { IntroductionComponent } from './content/introduction/introduction.component';
 import { LicenseComponent } from './content/license/license.component';
 
+/**
+ * Import every language you wish to highlight here
+ * NOTE: The name of each language must match the file name its imported from
+ */
+export function hljsLanguages() {
+  return [
+    { name: 'typescript', func: typescript },
+    { name: 'css', func: css },
+    { name: 'xml', func: xml }
+  ];
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +56,9 @@ import { LicenseComponent } from './content/license/license.component';
     HttpClientInMemoryWebApiModule.forRoot(
       ExampleInMemoryDataService, { dataEncapsulation: false }
     ),
+    HighlightModule.forRoot({
+      languages: hljsLanguages
+    }),
     ExampleModule,
     OlAngularModule,
     MatToolbarModule,

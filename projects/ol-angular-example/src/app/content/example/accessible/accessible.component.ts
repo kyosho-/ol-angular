@@ -1,43 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { MainService } from '../../../main/main.service';
-import { ExampleService } from '../example.service';
-import { Example } from '../example';
-import { Observable } from 'rxjs';
 
 import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
+import { MapComponent } from '../map-component';
 
 @Component({
   selector: 'app-accessible',
   templateUrl: './accessible.component.html',
   styleUrls: ['./accessible.component.css']
 })
-export class AccessibleComponent implements OnInit {
-
-  public static readonly EXAMPLE_ID = 'accessible';
-
-  example: Observable<Example>;
+export class AccessibleComponent implements MapComponent, OnInit {
 
   private map: Map;
 
-  constructor(
-    private mainService: MainService,
-    private exampleService: ExampleService) { }
+  constructor() { }
+
+  updateSize() {
+    this.map.updateSize();
+  }
 
   ngOnInit() {
-    // Handle opened and closed event of navigation side bar.
-    this.mainService.navigationChanged$.subscribe(
-      (opened: boolean) => {
-        // Resize map.
-        this.map.updateSize();
-      }
-    );
-
-    // Get example info.
-    this.example = this.exampleService.getExample(AccessibleComponent.EXAMPLE_ID);
-
     this.map = new Map({
       layers: [
         new TileLayer({

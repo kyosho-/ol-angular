@@ -1,27 +1,4 @@
-<h3>{{ (example | async)?.name }} based on
-    <a href="{{(example | async)?.url}}{{(example | async)?.fileName}}">
-        openlayers examples
-    </a>
-</h3>
-
 <a class="skiplink" href="#map">Go to map</a>
 <div id="map" class="map"></div>
 <button id="zoom-out" (click)="zoomOut($event)">Zoom out</button>
 <button id="zoom-in" (click)="zoomIn($event)">Zoom in</button>
-
-<p>
-    This page's map element has its tabindex attribute set to "0", that makes it focusable. To focus the map element you
-    can either navigate to it using the "tab" key or use the skip link. When the map element is focused the + and - keys
-    can be used to zoom in and out and the arrow keys can be used to pan.
-</p>
-
-<p>
-    Clicking on the "Zoom in" and "Zoom out" buttons below the map zooms the map in and out. You can navigate to the
-    buttons using the "tab" key, and press the "enter" key to trigger the zooming action.
-</p>
-
-<mat-tab-group>
-    <mat-tab label="First"> Content 1 </mat-tab>
-    <mat-tab label="Second"> Content 2 </mat-tab>
-    <mat-tab label="Third"> Content 3 </mat-tab>
-</mat-tab-group>

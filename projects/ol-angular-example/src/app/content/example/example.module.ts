@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+import { AccessibleDescriptionComponent } from './accessible-description/accessible-description.component';
+import { AccessibleComponent } from './accessible/accessible.component';
+
 import { AnimationComponent } from './animation/animation.component';
 import { ArcgisTiledComponent } from './arcgis-tiled/arcgis-tiled.component';
 import { SimpleComponent } from './simple/simple.component';
@@ -130,7 +135,6 @@ import { XyzRetinaComponent } from './xyz-retina/xyz-retina.component';
 import { XyzEsri4326x512Component } from './xyz-esri4326x512/xyz-esri4326x512.component';
 import { ZoomifyComponent } from './zoomify/zoomify.component';
 import { BlendModesComponent } from './blend-modes/blend-modes.component';
-import { AccessibleComponent } from './accessible/accessible.component';
 import { ButtonTitleComponent } from './button-title/button-title.component';
 import { CenterComponent } from './center/center.component';
 import { BoxSelectionComponent } from './box-selection/box-selection.component';
@@ -172,9 +176,15 @@ import { ZoomsliderComponent } from './zoomslider/zoomslider.component';
 import { VectorLabelsComponent } from './vector-labels/vector-labels.component';
 import { CanvasGradientPatternComponent } from './canvas-gradient-pattern/canvas-gradient-pattern.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { HighlightModule } from 'ngx-highlightjs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
+    AccessibleComponent,
+    AccessibleDescriptionComponent,
+
     AnimationComponent,
     ArcgisTiledComponent,
     SimpleComponent,
@@ -302,7 +312,6 @@ import { MatTabsModule } from '@angular/material/tabs';
     XyzEsri4326x512Component,
     ZoomifyComponent,
     BlendModesComponent,
-    AccessibleComponent,
     ButtonTitleComponent,
     CenterComponent,
     BoxSelectionComponent,
@@ -346,7 +355,11 @@ import { MatTabsModule } from '@angular/material/tabs';
   ],
   imports: [
     CommonModule,
-    MatTabsModule
+    HighlightModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatTabsModule,
+    MatButtonModule
   ],
   entryComponents: [
     RotateNorthControlComponent
