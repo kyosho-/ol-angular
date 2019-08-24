@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CommonMapComponent } from '../../common-map-component';
+
 import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
-import { MapComponent } from '../map-component';
 
 @Component({
-  selector: 'app-accessible',
-  templateUrl: './accessible.component.html',
-  styleUrls: ['./accessible.component.css']
+  selector: 'app-map',
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.css']
 })
-export class AccessibleComponent implements MapComponent, OnInit {
+export class MapComponent implements CommonMapComponent, OnInit {
 
   private map: Map;
 

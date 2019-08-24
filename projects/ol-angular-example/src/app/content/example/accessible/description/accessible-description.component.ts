@@ -2,11 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { MainService } from '../../../main/main.service';
-import { ExampleService } from '../example.service';
-import { Example } from '../example';
-import { MapComponent } from '../map-component';
-import { MatButton } from '@angular/material/button';
+import { MainService } from '../../../../main/main.service';
+import { ExampleService } from '../../example.service';
+import { Example } from '../../example';
+import { CommonMapComponent } from '../../common-map-component';
 import { share } from 'rxjs/operators';
 
 @Component({
@@ -16,14 +15,11 @@ import { share } from 'rxjs/operators';
 })
 export class AccessibleDescriptionComponent implements OnInit {
 
-  public static readonly EXAMPLE_ID = 'accessible';
-
   htmlCode = `
 <a class="skiplink" href="#map">Go to map</a>
 <div id="map" class="map"></div>
 <button id="zoom-out" (click)="zoomOut($event)">Zoom out</button>
-<button id="zoom-in" (click)="zoomIn($event)">Zoom in</button>
-`;
+<button id="zoom-in" (click)="zoomIn($event)">Zoom in</button>`;
 
   cssCode = `
 .map {
@@ -104,11 +100,10 @@ export class AccessibleComponent implements MapComponent, OnInit {
     const zoom = view.getZoom();
     view.setZoom(zoom - 1);
   }
-}
-`;
+}`;
 
   @ViewChild('component', { static: false })
-  component: MapComponent;
+  component: CommonMapComponent;
 
   example$: Observable<Example>;
 
@@ -120,23 +115,17 @@ export class AccessibleComponent implements MapComponent, OnInit {
     // Handle opened and closed event of navigation side bar.
     this.mainService.navigationChanged$.subscribe(
       (opened: boolean) => {
-        // Resize map.
         this.component.updateSize();
       }
     );
 
     // Get example info.
-    this.example$ = this.exampleService.getExample(
-      AccessibleDescriptionComponent.EXAMPLE_ID).pipe(
-        share()
-      );
+    this.example$ = this.exampleService
+      .getExample('accessible').pipe(share());
   }
 
   openLink(event: any) {
-    this.example$.subscribe(
-      (example: Example) => {
-        console.log(`${example.url}${example.fileName}`);
-        window.open(`${example.url}${example.fileName}`, 'ol');
-      });
+    this.example$.subscribe((example: Example) =>
+      window.open(`${example.url}${example.fileName}`, 'ol'));
   }
 }

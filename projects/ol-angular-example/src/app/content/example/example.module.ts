@@ -1,11 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MatTooltipModule } from '@angular/material/tooltip';
-
-import { AccessibleDescriptionComponent } from './accessible-description/accessible-description.component';
-import { AccessibleComponent } from './accessible/accessible.component';
-
 import { AnimationComponent } from './animation/animation.component';
 import { ArcgisTiledComponent } from './arcgis-tiled/arcgis-tiled.component';
 import { SimpleComponent } from './simple/simple.component';
@@ -175,16 +170,21 @@ import { WmtsHidpiComponent } from './wmts-hidpi/wmts-hidpi.component';
 import { ZoomsliderComponent } from './zoomslider/zoomslider.component';
 import { VectorLabelsComponent } from './vector-labels/vector-labels.component';
 import { CanvasGradientPatternComponent } from './canvas-gradient-pattern/canvas-gradient-pattern.component';
-import { MatTabsModule } from '@angular/material/tabs';
-import { HighlightModule } from 'ngx-highlightjs';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+
+import { AnimationDescriptionComponent } from './animation-description/animation-description.component';
+import { ArcgisTiledDescriptionComponent } from './arcgis-tiled-description/arcgis-tiled-description.component';
+import { CustomControlsDescriptionComponent } from './custom-controls-description/custom-controls-description.component';
+import { AttributionsDescriptionComponent } from './attributions-description/attributions-description.component';
+import { D3DescriptionComponent } from './d3-description/d3-description.component';
+import { IconNegativeDescriptionComponent } from './icon-negative-description/icon-negative-description.component';
+import { SimpleDescriptionComponent } from './simple-description/simple-description.component';
+import { StaticImageDescriptionComponent } from './static-image-description/static-image-description.component';
+import { MousePositonDescriptionComponent } from './mouse-positon-description/mouse-positon-description.component';
+
+import { AccessibleDescriptionModule } from './accessible/accessible-description.module';
 
 @NgModule({
   declarations: [
-    AccessibleComponent,
-    AccessibleDescriptionComponent,
-
     AnimationComponent,
     ArcgisTiledComponent,
     SimpleComponent,
@@ -351,15 +351,20 @@ import { MatIconModule } from '@angular/material/icon';
     WmtsHidpiComponent,
     ZoomsliderComponent,
     VectorLabelsComponent,
-    CanvasGradientPatternComponent
+    CanvasGradientPatternComponent,
+    AnimationDescriptionComponent,
+    ArcgisTiledDescriptionComponent,
+    CustomControlsDescriptionComponent,
+    AttributionsDescriptionComponent,
+    D3DescriptionComponent,
+    IconNegativeDescriptionComponent,
+    SimpleDescriptionComponent,
+    StaticImageDescriptionComponent,
+    MousePositonDescriptionComponent
   ],
   imports: [
     CommonModule,
-    HighlightModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatTabsModule,
-    MatButtonModule
+    AccessibleDescriptionModule
   ],
   entryComponents: [
     RotateNorthControlComponent

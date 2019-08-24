@@ -4,19 +4,19 @@ import { Routes, RouterModule } from '@angular/router';
 import { IntroductionComponent } from './content/introduction/introduction.component';
 import { LicenseComponent } from './content/license/license.component';
 
-import { AccessibleDescriptionComponent } from './content/example/accessible-description/accessible-description.component';
+import { AccessibleDescriptionComponent } from './content/example/accessible/description/accessible-description.component';
+import { AnimationDescriptionComponent } from './content/example/animation-description/animation-description.component';
+import { ArcgisTiledDescriptionComponent } from './content/example/arcgis-tiled-description/arcgis-tiled-description.component';
+import { AttributionsDescriptionComponent } from './content/example/attributions-description/attributions-description.component';
+import { CustomControlsDescriptionComponent } from './content/example/custom-controls-description/custom-controls-description.component';
+import { D3DescriptionComponent } from './content/example/d3-description/d3-description.component';
+import { IconNegativeDescriptionComponent } from './content/example/icon-negative-description/icon-negative-description.component';
+import { MousePositonDescriptionComponent } from './content/example/mouse-positon-description/mouse-positon-description.component';
+import { SimpleDescriptionComponent } from './content/example/simple-description/simple-description.component';
+import { StaticImageDescriptionComponent } from './content/example/static-image-description/static-image-description.component';
 
-import { AnimationComponent } from './content/example/animation/animation.component';
-import { ArcgisTiledComponent } from './content/example/arcgis-tiled/arcgis-tiled.component';
-import { CustomControlsComponent } from './content/example/custom-controls/custom-controls.component';
-import { MousePositionComponent } from './content/example/mouse-position/mouse-position.component';
-import { SimpleComponent } from './content/example/simple/simple.component';
-import { StaticImageComponent } from './content/example/static-image/static-image.component';
-import { D3Component } from './content/example/d3/d3.component';
-import { AttributionsComponent } from './content/example/attributions/attributions.component';
 import { ReticleComponent } from './content/ol-angular/reticle/reticle.component';
 import { ZoomComponent } from './content/ol-angular/zoom/zoom.component';
-import { IconNegativeComponent } from './content/example/icon-negative/icon-negative.component';
 
 const routes: Routes = [
   // contents
@@ -25,15 +25,15 @@ const routes: Routes = [
   { path: 'introduction', component: IntroductionComponent },
   { path: 'license', component: LicenseComponent },
   { path: 'example/accessible', component: AccessibleDescriptionComponent },
-  { path: 'example/animation', component: AnimationComponent },
-  { path: 'example/arcgis-tiled', component: ArcgisTiledComponent },
-  { path: 'example/attributions', component: AttributionsComponent },
-  { path: 'example/custom-controls', component: CustomControlsComponent },
-  { path: 'example/d3', component: D3Component },
-  { path: 'example/icon-negative', component: IconNegativeComponent },
-  { path: 'example/mouse-position', component: MousePositionComponent },
-  { path: 'example/simple', component: SimpleComponent },
-  { path: 'example/static-image', component: StaticImageComponent },
+  { path: 'example/animation', component: AnimationDescriptionComponent },
+  { path: 'example/arcgis-tiled', component: ArcgisTiledDescriptionComponent },
+  { path: 'example/attributions', component: AttributionsDescriptionComponent },
+  { path: 'example/custom-controls', component: CustomControlsDescriptionComponent },
+  { path: 'example/d3', component: D3DescriptionComponent },
+  { path: 'example/icon-negative', component: IconNegativeDescriptionComponent },
+  { path: 'example/mouse-position', component: MousePositonDescriptionComponent },
+  { path: 'example/simple', component: SimpleDescriptionComponent },
+  { path: 'example/static-image', component: StaticImageDescriptionComponent },
   // ol-angular examples
   { path: 'ol-angular/reticle', component: ReticleComponent },
   { path: 'ol-angular/zoom', component: ZoomComponent }
