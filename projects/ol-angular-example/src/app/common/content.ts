@@ -1,4 +1,4 @@
-export interface Example {
+export interface Content {
     id: string;
     name: string;
     fileName: string;

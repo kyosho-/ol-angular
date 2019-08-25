@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExampleService } from '../../content/example/example.service';
-import { Example } from '../../content/example/example';
+import { Content } from '../../common/content';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,11 +10,11 @@ import { Observable } from 'rxjs';
 })
 export class NavigationComponent implements OnInit {
 
-  examples$: Observable<Example[]>;
+  contents$: Observable<Content[]>;
 
   constructor(private exampleService: ExampleService) { }
 
   ngOnInit() {
-    this.examples$ = this.exampleService.getExamples();
+    this.contents$ = this.exampleService.getExamples();
   }
 }

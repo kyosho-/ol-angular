@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CommonMapComponent } from '../../common-map-component';
+import { MapComponentCommon } from '../../../../common/map-component-common';
 
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -14,7 +14,7 @@ import OSM from 'ol/source/OSM';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements CommonMapComponent, OnInit {
+export class MapComponent implements MapComponentCommon, OnInit {
 
   private static readonly london = fromLonLat([-0.12755, 51.507222]);
   private static readonly moscow = fromLonLat([37.6178, 55.7517]);

@@ -1,1 +1,26 @@
-<p>animation-description works!</p>
+<h3>{{ (content$ | async)?.name }}</h3>
+
+<app-map #component></app-map>
+
+<h4>Description</h4>
+
+<p>This example shows how to use the <code>view.animate()</code> method to run one or more animations.</p>
+
+<button mat-stroked-button matTooltip="Link to original example." color="primary" (click)="openLink($event)">
+    <mat-icon>link</mat-icon>
+    Link to original.
+</button>
+
+<h4>Souce</h4>
+
+<mat-tab-group>
+    <mat-tab label="HTML">
+        <pre><code [highlight]="htmlCode"></code></pre>
+    </mat-tab>
+    <mat-tab label="TS">
+        <pre><code [highlight]="tsCode"></code></pre>
+    </mat-tab>
+    <mat-tab label="CSS">
+        <pre><code [highlight]="cssCode"></code></pre>
+    </mat-tab>
+</mat-tab-group>

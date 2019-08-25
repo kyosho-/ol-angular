@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MapComponent } from './map/map.component';
+
+import { HighlightModule } from 'ngx-highlightjs';
+
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
+
 import { DescriptionComponent } from './description/description.component';
+import { MapComponent } from './map/map.component';
 import { AnimationComponent } from './animation.component';
-
-
 
 @NgModule({
   declarations: [
@@ -13,7 +19,12 @@ import { AnimationComponent } from './animation.component';
     AnimationComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HighlightModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatTabsModule,
+    MatButtonModule
   ]
 })
 export class AnimationModule { }

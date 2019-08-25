@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 
 import { MainService } from '../../../../main/main.service';
 import { ExampleService } from '../../example.service';
-import { Example } from '../../example';
-import { CommonMapComponent } from '../../common-map-component';
+import { MapComponentCommon } from '../../../../common/map-component-common';
 import { share } from 'rxjs/operators';
+import { Content } from '../../../../common/content';
 
 @Component({
   selector: 'app-description',
@@ -15,14 +15,12 @@ import { share } from 'rxjs/operators';
 })
 export class DescriptionComponent implements OnInit {
 
-  htmlCode = `
-<a class="skiplink" href="#map">Go to map</a>
+  htmlCode = `<a class="skiplink" href="#map">Go to map</a>
 <div id="map" class="map"></div>
 <button id="zoom-out" (click)="zoomOut($event)">Zoom out</button>
 <button id="zoom-in" (click)="zoomIn($event)">Zoom in</button>`;
 
-  cssCode = `
-.map {
+  cssCode = `.map {
     height: 400px;
     width: 100%;
     margin-bottom: 10px;
@@ -50,8 +48,7 @@ a.skiplink:focus {
     outline: #4A74A8 solid 0.15em;
 }`;
 
-  tsCode = `
-import { Component, OnInit } from '@angular/core';
+  tsCode = `import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import Map from 'ol/Map';
@@ -103,9 +100,9 @@ export class AccessibleComponent implements MapComponent, OnInit {
 }`;
 
   @ViewChild('component', { static: false })
-  component: CommonMapComponent;
+  component: MapComponentCommon;
 
-  example$: Observable<Example>;
+  content$: Observable<Content>;
 
   constructor(
     private mainService: MainService,
@@ -120,12 +117,12 @@ export class AccessibleComponent implements MapComponent, OnInit {
     );
 
     // Get example info.
-    this.example$ = this.exampleService
+    this.content$ = this.exampleService
       .getExample('accessible').pipe(share());
   }
 
   openLink(event: any) {
-    this.example$.subscribe((example: Example) =>
-      window.open(`${example.url}${example.fileName}`, 'ol'));
+    this.content$.subscribe((content: Content) =>
+      window.open(`${content.url}${content.fileName}`, 'ol'));
   }
 }

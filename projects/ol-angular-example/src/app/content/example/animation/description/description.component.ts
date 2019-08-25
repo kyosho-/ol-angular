@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 
 import { MainService } from '../../../../main/main.service';
 import { ExampleService } from '../../example.service';
-import { Example } from '../../example';
-import { CommonMapComponent } from '../../common-map-component';
+import { Content } from '../../../../common/content';
+import { MapComponentCommon } from '../../../../common/map-component-common';
 import { share } from 'rxjs/operators';
 
 @Component({
@@ -14,7 +14,6 @@ import { share } from 'rxjs/operators';
   styleUrls: ['./description.component.css']
 })
 export class DescriptionComponent implements OnInit {
-
 
   htmlCode = `<div id="map" class="map"></div>
 <button (click)="rotateLeft()" title="Rotate clockwise">↻</button>
@@ -242,9 +241,9 @@ export class MapComponent implements CommonMapComponent, OnInit {
 }`;
 
   @ViewChild('component', { static: false })
-  component: CommonMapComponent;
+  component: MapComponentCommon;
 
-  example$: Observable<Example>;
+  content$: Observable<Content>;
 
   constructor(
     private mainService: MainService,
@@ -259,12 +258,12 @@ export class MapComponent implements CommonMapComponent, OnInit {
     );
 
     // Get example info.
-    this.example$ = this.exampleService
+    this.content$ = this.exampleService
       .getExample('animation').pipe(share());
   }
 
   openLink(event: any) {
-    this.example$.subscribe((example: Example) =>
-      window.open(`${example.url}${example.fileName}`, 'ol'));
+    this.content$.subscribe((content: Content) =>
+      window.open(`${content.url}${content.fileName}`, 'ol'));
   }
 }
