@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AnimationComponent } from './animation/animation.component';
+import { ExampleRoutingModule } from './example-routing.module';
+
 import { ArcgisTiledComponent } from './arcgis-tiled/arcgis-tiled.component';
 import { SimpleComponent } from './simple/simple.component';
 
@@ -171,7 +172,6 @@ import { ZoomsliderComponent } from './zoomslider/zoomslider.component';
 import { VectorLabelsComponent } from './vector-labels/vector-labels.component';
 import { CanvasGradientPatternComponent } from './canvas-gradient-pattern/canvas-gradient-pattern.component';
 
-import { AnimationDescriptionComponent } from './animation-description/animation-description.component';
 import { ArcgisTiledDescriptionComponent } from './arcgis-tiled-description/arcgis-tiled-description.component';
 import { CustomControlsDescriptionComponent } from './custom-controls-description/custom-controls-description.component';
 import { AttributionsDescriptionComponent } from './attributions-description/attributions-description.component';
@@ -181,11 +181,11 @@ import { SimpleDescriptionComponent } from './simple-description/simple-descript
 import { StaticImageDescriptionComponent } from './static-image-description/static-image-description.component';
 import { MousePositonDescriptionComponent } from './mouse-positon-description/mouse-positon-description.component';
 
-import { AccessibleDescriptionModule } from './accessible/accessible-description.module';
+import { AccessibleModule } from './accessible/accessible.module';
+import { AnimationModule } from './animation/animation.module';
 
 @NgModule({
   declarations: [
-    AnimationComponent,
     ArcgisTiledComponent,
     SimpleComponent,
     StaticImageComponent,
@@ -352,7 +352,6 @@ import { AccessibleDescriptionModule } from './accessible/accessible-description
     ZoomsliderComponent,
     VectorLabelsComponent,
     CanvasGradientPatternComponent,
-    AnimationDescriptionComponent,
     ArcgisTiledDescriptionComponent,
     CustomControlsDescriptionComponent,
     AttributionsDescriptionComponent,
@@ -364,7 +363,9 @@ import { AccessibleDescriptionModule } from './accessible/accessible-description
   ],
   imports: [
     CommonModule,
-    AccessibleDescriptionModule
+    ExampleRoutingModule,
+    AccessibleModule,
+    AnimationModule
   ],
   entryComponents: [
     RotateNorthControlComponent

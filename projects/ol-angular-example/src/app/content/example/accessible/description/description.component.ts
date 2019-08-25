@@ -9,11 +9,11 @@ import { CommonMapComponent } from '../../common-map-component';
 import { share } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-accessible-description',
-  templateUrl: './accessible-description.component.html',
-  styleUrls: ['./accessible-description.component.css']
+  selector: 'app-description',
+  templateUrl: './description.component.html',
+  styleUrls: ['./description.component.css']
 })
-export class AccessibleDescriptionComponent implements OnInit {
+export class DescriptionComponent implements OnInit {
 
   htmlCode = `
 <a class="skiplink" href="#map">Go to map</a>

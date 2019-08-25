@@ -8,13 +8,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 
-import { AccessibleDescriptionComponent } from './description/accessible-description.component';
+import { DescriptionComponent } from './description/description.component';
 import { MapComponent } from './map/map.component';
+import { AccessibleComponent } from './accessible.component';
 
 @NgModule({
   declarations: [
-    AccessibleDescriptionComponent,
-    MapComponent
+    DescriptionComponent,
+    MapComponent,
+    AccessibleComponent
   ],
   imports: [
     CommonModule,
@@ -25,4 +27,4 @@ import { MapComponent } from './map/map.component';
     MatButtonModule
   ]
 })
-export class AccessibleDescriptionModule { }
+export class AccessibleModule { }
