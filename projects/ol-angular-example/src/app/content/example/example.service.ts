@@ -11,7 +11,7 @@ import { Content } from '../../common/content';
 })
 export class ExampleService {
 
-  public static readonly PATH = 'assets/contents.json';
+  public static readonly PATH = 'assets/example/contents.json';
 
   constructor(
     private contentService: ContentService,
