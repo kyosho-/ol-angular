@@ -2,10 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
 import { Observable } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { switchMap, tap, map } from 'rxjs/operators';
 
 import { Content } from '../../common/content';
 import { ExampleService } from './example.service';
+import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-example',
@@ -14,95 +15,20 @@ import { ExampleService } from './example.service';
 })
 export class ExampleComponent implements OnInit {
 
-  htmlCode = `<a class="skiplink" href="#map">Go to map</a>
-<div id="map" class="map"></div>
-<button id="zoom-out" (click)="zoomOut($event)">Zoom out</button>
-<button id="zoom-in" (click)="zoomIn($event)">Zoom in</button>`;
+  htmlDescription: Observable<SafeHtml>;
 
-  cssCode = `.map {
-    height: 400px;
-    width: 100%;
-    margin-bottom: 10px;
-}
+  htmlCode: string;
 
-a.skiplink {
-    position: absolute;
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 0;
-    border: 0;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-}
+  cssCode: string;
 
-a.skiplink:focus {
-    clip: auto;
-    height: auto;
-    width: auto;
-    background-color: #fff;
-    padding: 0.3em;
-}
-
-#map:focus {
-    outline: #4A74A8 solid 0.15em;
-}`;
-
-  tsCode = `import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-
-import Map from 'ol/Map';
-import View from 'ol/View';
-import TileLayer from 'ol/layer/Tile';
-import OSM from 'ol/source/OSM';
-
-@Component({
-  selector: 'app-accessible',
-  templateUrl: './accessible.component.html',
-  styleUrls: ['./accessible.component.css']
-})
-export class AccessibleComponent implements MapComponent, OnInit {
-
-  private map: Map;
-
-  constructor() { }
-
-  updateSize() {
-    this.map.updateSize();
-  }
-
-  ngOnInit() {
-    this.map = new Map({
-      layers: [
-        new TileLayer({
-          source: new OSM()
-        })
-      ],
-      target: 'map',
-      view: new View({
-        center: [0, 0],
-        zoom: 2
-      })
-    });
-  }
-
-  zoomIn(event: MouseEvent) {
-    const view = this.map.getView();
-    const zoom = view.getZoom();
-    view.setZoom(zoom + 1);
-  }
-
-  zoomOut(event: MouseEvent) {
-    const view = this.map.getView();
-    const zoom = view.getZoom();
-    view.setZoom(zoom - 1);
-  }
-}`;
+  tsCode: string;
 
   content$: Observable<Content>;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private sanitizer: DomSanitizer,
     private exampleService: ExampleService) { }
 
   ngOnInit() {
@@ -111,7 +37,17 @@ export class AccessibleComponent implements MapComponent, OnInit {
       switchMap((params: ParamMap) =>
         this.exampleService.getExample(params.get('id'))),
       tap((content: Content) => {
-        // this.router.navigate([{ outlets: { example: content.id } }]);
+        this.htmlDescription = this.exampleService.getHtmlDescriptionCode(content.id).pipe(
+          map((description: string) => {
+            return this.sanitizer.bypassSecurityTrustHtml(description);
+          })
+        );
+        // this.cssCode = this.exampleService.getCssCode(content.id);
+        this.exampleService.getCssCode(content.id).subscribe((code: string) => this.cssCode = code);
+        // this.htmlCode = this.exampleService.getHtmlCode(content.id);
+        this.exampleService.getHtmlCode(content.id).subscribe((code: string) => this.htmlCode = code);
+        // this.tsCode = this.exampleService.getTsCode(content.id);
+        this.exampleService.getTsCode(content.id).subscribe((code: string) => this.tsCode = code);
       }),
       tap((content: Content) => {
         console.log(content);

@@ -52,6 +52,13 @@ export class ContentService {
     );
   }
 
+  getText(url: string): Observable<string> {
+    return this.http.get(url, { responseType: 'text' }).pipe(
+      tap(contents => this.log('fetched contents')),
+      catchError(this.handleError<string>('getContents', ''))
+    );
+  }
+
   /**
    * 失敗したHttp操作を処理します。
    * アプリを持続させます。
