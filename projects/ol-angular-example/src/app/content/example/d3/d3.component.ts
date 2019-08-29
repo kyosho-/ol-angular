@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { from } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { MainService } from '../../../main/main.service';
+
 import Map from 'ol/Map';
 import View from 'ol/View';
 import { Extent, getWidth, getCenter } from 'ol/extent';
@@ -12,10 +16,6 @@ import { Size } from 'ol/size';
 import * as d3 from 'd3';
 
 import * as topojson from 'topojson';
-
-import { from } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { MainService } from '../../../main/main.service';
 
 @Component({
   selector: 'app-d3',
@@ -32,7 +32,6 @@ export class D3Component implements OnInit {
     // Handle opened and closed event of navigation side bar.
     this.mainService.navigationChanged$.subscribe(
       (opened: boolean) => {
-        // Resize map.
         this.map.updateSize();
       }
     );
@@ -52,7 +51,7 @@ export class D3Component implements OnInit {
       })
     });
 
-    from(d3.json('assets/data/topojson/us.json')).pipe(
+    from(d3.json('assets/example/data/topojson/us.json')).pipe(
       map((us: any) => {
         const features = topojson.feature(us, us.objects.counties);
         return features;

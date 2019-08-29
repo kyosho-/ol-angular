@@ -27,7 +27,7 @@ export class ExampleService {
     return this.contentService.getContents(this.url);
   }
 
-  getExample(id: string): Observable<any> {
+  getExample(id: string): Observable<Content> {
     return this.contentService.getContent(this.url, id);
   }
 

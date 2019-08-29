@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MainService } from '../../../main/main.service';
+
 import Map from 'ol/Map';
 import View from 'ol/View';
 import { getCenter } from 'ol/extent';
 import ImageLayer from 'ol/layer/Image';
 import Projection from 'ol/proj/Projection';
 import Static from 'ol/source/ImageStatic';
-import { MainService } from '../../../main/main.service';
 
 @Component({
   selector: 'app-static-image',
@@ -33,7 +34,6 @@ export class StaticImageComponent implements OnInit {
     // Handle opened and closed event of navigation side bar.
     this.mainService.navigationChanged$.subscribe(
       (opened: boolean) => {
-        // Resize map.
         this.map.updateSize();
       }
     );

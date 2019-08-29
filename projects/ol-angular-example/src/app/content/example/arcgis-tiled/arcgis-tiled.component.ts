@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MainService } from '../../../main/main.service';
+
 import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import { OSM, TileArcGISRest } from 'ol/source';
 import { Options as TileArcGISRestOptions } from 'ol/source/TileArcGISRest';
-import { MainService } from '../../../main/main.service';
 
 @Component({
   selector: 'app-arcgis-tiled',
@@ -25,7 +26,6 @@ export class ArcgisTiledComponent implements OnInit {
     // Handle opened and closed event of navigation side bar.
     this.mainService.navigationChanged$.subscribe(
       (opened: boolean) => {
-        // Resize map.
         this.map.updateSize();
       }
     );

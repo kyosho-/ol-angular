@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MainService } from '../../../main/main.service';
+
 import Feature from 'ol/Feature';
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -9,7 +11,6 @@ import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
 import Stamen from 'ol/source/Stamen';
 import VectorSource from 'ol/source/Vector';
 import { Icon, Style } from 'ol/style';
-import { ImageLoadEventsComponent } from '../image-load-events/image-load-events.component';
 
 @Component({
   selector: 'app-icon-negative',
@@ -20,11 +21,18 @@ export class IconNegativeComponent implements OnInit {
 
   map: Map;
 
-  constructor() { }
+  constructor(private mainService: MainService) { }
 
   ngOnInit() {
+    // Handle opened and closed event of navigation side bar.
+    this.mainService.navigationChanged$.subscribe(
+      (opened: boolean) => {
+        this.map.updateSize();
+      }
+    );
+
     const iconFeature = new Feature(new Point([0, 0]));
-    iconFeature.set('style', this.createStyle('assets/data/icon.png', undefined));
+    iconFeature.set('style', this.createStyle('assets/example/data/icon.png', undefined));
 
     this.map = new Map({
       layers: [

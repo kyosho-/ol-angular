@@ -10,6 +10,7 @@ import { ZoomComponent } from './content/ol-angular/zoom/zoom.component';
 const routes: Routes = [
   // contents
   { path: '', redirectTo: '/introduction', pathMatch: 'full' },
+  // { path: '', redirectTo: '/example/accessible/accessible', pathMatch: 'full' },
   { path: 'introduction', component: IntroductionComponent },
   { path: 'license', component: LicenseComponent },
   // ol examples

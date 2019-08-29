@@ -26,7 +26,7 @@ export class ContentService {
   }
 
   /** IDによりヒーローを取得する。見つからなかった場合は404を返却する。 */
-  getContent(url: string, id: string): Observable<any> {
+  getContent(url: string, id: string): Observable<Content> {
     return this.getContents(url).pipe(
       tap(() => this.log(`fetched content id=${id}`)),
       concatMap((value: Content[]) => from(value)),

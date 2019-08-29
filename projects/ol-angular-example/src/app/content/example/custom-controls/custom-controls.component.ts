@@ -1,12 +1,14 @@
 import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ComponentFactory, HostListener } from '@angular/core';
 
+import { MainService } from '../../../main/main.service';
+
+import { RotateNorthControlComponent } from './rotate-north-control/rotate-north-control.component';
+
 import Map from 'ol/Map';
 import View from 'ol/View';
 import { defaults as defaultControls } from 'ol/control';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
-import { RotateNorthControlComponent } from './rotate-north-control/rotate-north-control.component';
-import { MainService } from '../../../main/main.service';
 
 @Component({
   selector: 'app-custom-controls',
@@ -28,7 +30,6 @@ export class CustomControlsComponent implements OnInit {
     // Handle opened and closed event of navigation side bar.
     this.mainService.navigationChanged$.subscribe(
       (opened: boolean) => {
-        // Resize map.
         this.map.updateSize();
       }
     );

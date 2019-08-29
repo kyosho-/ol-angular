@@ -3,7 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { ExampleRoutingModule } from './example-routing.module';
 
+import { ExampleComponent } from './example.component';
+
+import { AccessibleComponent } from './accessible/accessible.component';
+import { AnimationComponent } from './animation/animation.component';
+import { ArcgisImageComponent } from './arcgis-image/arcgis-image.component';
 import { ArcgisTiledComponent } from './arcgis-tiled/arcgis-tiled.component';
+
 import { SimpleComponent } from './simple/simple.component';
 
 import { StaticImageComponent } from './static-image/static-image.component';
@@ -34,7 +40,6 @@ import { ExtentInteractionComponent } from './extent-interaction/extent-interact
 import { FeatureMoveAnimationComponent } from './feature-move-animation/feature-move-animation.component';
 import { FlightAnimationComponent } from './flight-animation/flight-animation.component';
 import { FeatureAnimationComponent } from './feature-animation/feature-animation.component';
-import { ArcgisImageComponent } from './arcgis-image/arcgis-image.component';
 import { GeojsonVtComponent } from './geojson-vt/geojson-vt.component';
 import { GeojsonComponent } from './geojson/geojson.component';
 import { GeolocationComponent } from './geolocation/geolocation.component';
@@ -172,20 +177,20 @@ import { ZoomsliderComponent } from './zoomslider/zoomslider.component';
 import { VectorLabelsComponent } from './vector-labels/vector-labels.component';
 import { CanvasGradientPatternComponent } from './canvas-gradient-pattern/canvas-gradient-pattern.component';
 
-import { ArcgisTiledDescriptionComponent } from './arcgis-tiled-description/arcgis-tiled-description.component';
-import { CustomControlsDescriptionComponent } from './custom-controls-description/custom-controls-description.component';
-import { AttributionsDescriptionComponent } from './attributions-description/attributions-description.component';
-import { D3DescriptionComponent } from './d3-description/d3-description.component';
-import { IconNegativeDescriptionComponent } from './icon-negative-description/icon-negative-description.component';
-import { SimpleDescriptionComponent } from './simple-description/simple-description.component';
-import { StaticImageDescriptionComponent } from './static-image-description/static-image-description.component';
-import { MousePositonDescriptionComponent } from './mouse-positon-description/mouse-positon-description.component';
-
-import { AccessibleModule } from './accessible/accessible.module';
-import { AnimationModule } from './animation/animation.module';
+import { HighlightModule } from 'ngx-highlightjs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
+    ExampleComponent,
+
+    AccessibleComponent,
+    AnimationComponent,
+    ArcgisImageComponent,
+
     ArcgisTiledComponent,
     SimpleComponent,
     StaticImageComponent,
@@ -216,7 +221,6 @@ import { AnimationModule } from './animation/animation.module';
     FeatureMoveAnimationComponent,
     FlightAnimationComponent,
     FeatureAnimationComponent,
-    ArcgisImageComponent,
     GeojsonVtComponent,
     GeojsonComponent,
     GeolocationComponent,
@@ -351,21 +355,16 @@ import { AnimationModule } from './animation/animation.module';
     WmtsHidpiComponent,
     ZoomsliderComponent,
     VectorLabelsComponent,
-    CanvasGradientPatternComponent,
-    ArcgisTiledDescriptionComponent,
-    CustomControlsDescriptionComponent,
-    AttributionsDescriptionComponent,
-    D3DescriptionComponent,
-    IconNegativeDescriptionComponent,
-    SimpleDescriptionComponent,
-    StaticImageDescriptionComponent,
-    MousePositonDescriptionComponent
+    CanvasGradientPatternComponent
   ],
   imports: [
     CommonModule,
     ExampleRoutingModule,
-    AccessibleModule,
-    AnimationModule
+    HighlightModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatTabsModule,
+    MatButtonModule
   ],
   entryComponents: [
     RotateNorthControlComponent

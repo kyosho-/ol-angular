@@ -14,6 +14,13 @@
         "url": "https://openlayers.org/en/latest/examples/"
     },
     {
+        "id": "arcgis-image",
+        "fileName": "arcgis-image.html",
+        "name": "Image ArcGIS MapServer",
+        "description": "Example of an image ArcGIS layer.",
+        "url": "https://openlayers.org/en/latest/examples/"
+    },
+    {
         "id": "arcgis-tiled",
         "fileName": "arcgis-tiled.html",
         "name": "Tiled ArcGIS MapServer",
