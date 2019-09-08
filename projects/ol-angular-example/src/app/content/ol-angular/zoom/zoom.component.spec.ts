@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ZoomComponent } from './zoom.component';
+import { ZoomControlComponent } from '../zoom-control/zoom-control.component';
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
 describe('ZoomComponent', () => {
   let component: ZoomComponent;
@@ -8,9 +11,24 @@ describe('ZoomComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ZoomComponent ]
-    })
-    .compileComponents();
+      imports: [
+        MatIconModule
+      ],
+      declarations: [
+        ZoomComponent,
+        ZoomControlComponent
+      ]
+    }).overrideModule(
+      BrowserDynamicTestingModule,
+      {
+        set: {
+          entryComponents: [
+            ZoomControlComponent
+          ]
+        }
+      }
+    )
+      .compileComponents();
   }));
 
   beforeEach(() => {

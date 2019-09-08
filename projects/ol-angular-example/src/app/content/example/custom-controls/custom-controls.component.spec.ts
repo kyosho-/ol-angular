@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomControlsComponent } from './custom-controls.component';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
+import { RotateNorthControlComponent } from './rotate-north-control/rotate-north-control.component';
 
 describe('CustomControlsComponent', () => {
   let component: CustomControlsComponent;
@@ -8,9 +10,22 @@ describe('CustomControlsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CustomControlsComponent ]
+      declarations: [
+        CustomControlsComponent,
+        RotateNorthControlComponent
+      ]
     })
-    .compileComponents();
+      .overrideModule(
+        BrowserDynamicTestingModule,
+        {
+          set: {
+            entryComponents: [
+              RotateNorthControlComponent
+            ]
+          }
+        }
+      )
+      .compileComponents();
   }));
 
   beforeEach(() => {

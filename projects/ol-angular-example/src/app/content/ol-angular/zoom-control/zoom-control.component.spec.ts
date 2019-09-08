@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ZoomControlComponent } from './zoom-control.component';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('ZoomControlComponent', () => {
   let component: ZoomControlComponent;
@@ -8,9 +9,12 @@ describe('ZoomControlComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ZoomControlComponent ]
+      imports: [
+        MatIconModule
+      ],
+      declarations: [ZoomControlComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
