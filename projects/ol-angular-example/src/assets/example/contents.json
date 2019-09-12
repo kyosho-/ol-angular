@@ -28,6 +28,20 @@
         "url": "https://openlayers.org/en/latest/examples/"
     },
     {
+        "id": "attributions",
+        "fileName": "attributions.html",
+        "name": "Attributions",
+        "description": "Example of an attributions visibily cange on map resize. to collapse them on small maps.",
+        "url": "https://openlayers.org/en/latest/examples/"
+    },
+    {
+        "id": "bing-maps",
+        "fileName": "bing-maps.html",
+        "name": "Bing Maps",
+        "description": "Example of a Bing Maps layer.",
+        "url": "https://openlayers.org/en/latest/examples/"
+    },
+    {
         "id": "custom-controls",
         "fileName": "custom-controls.html",
         "name": "Custom Controls",
