@@ -1,1 +1,27 @@
-<p>Home contents is writing now...</p>
+<h2>Openlayers examples on Angular</h2>
+<h3>Introduction</h3>
+<p>
+    <a href="https://openlayers.org" target="ol">Openlayers</a> is the great web map rendring framework.
+    This page is <a href="https://angular.io" target="angular">Angular</a> example with
+    <a href="https://openlayers.org" target="ol">Openlayers</a>.
+</p>
+<p>
+    My goal is ...
+</p>
+<ol>
+    <li>Practice with Angular and Openlayers.</li>
+    <li>Operation check.</li>
+    <li>For new utilies and wrapper libraries.</li>
+</ol>
+
+<div>
+    <mat-nav-list>
+        <h3 mat-subheader>Examples ol</h3>
+        <mat-list-item *ngFor="let content of contents$ | async" [routerLink]="['/example/', content.id, content.id]">
+            <mat-icon mat-list-icon color="primary">map</mat-icon>
+            <h4 mat-line>{{content.name}}</h4>
+            <p mat-line>({{content.fileName}})</p>
+            <p mat-line>{{content.description}}</p>
+        </mat-list-item>
+    </mat-nav-list>
+</div>
