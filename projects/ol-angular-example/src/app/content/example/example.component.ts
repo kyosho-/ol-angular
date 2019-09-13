@@ -50,7 +50,7 @@ export class ExampleComponent implements OnInit {
         this.exampleService.getTsCode(content.id).subscribe((code: string) => this.tsCode = code);
       }),
       tap((content: Content) => {
-        console.log(content);
+        // console.log(content);
       }));
   }
 
