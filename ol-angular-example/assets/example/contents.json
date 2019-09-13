@@ -42,6 +42,13 @@
         "url": "https://openlayers.org/en/latest/examples/"
     },
     {
+        "id": "blend-modes",
+        "fileName": "blend-modes.html",
+        "name": "Blend Modes",
+        "description": "Shows how to change the canvas compositing / blending mode in post- and precompose eventhandlers.",
+        "url": "https://openlayers.org/en/latest/examples/"
+    },
+    {
         "id": "custom-controls",
         "fileName": "custom-controls.html",
         "name": "Custom Controls",

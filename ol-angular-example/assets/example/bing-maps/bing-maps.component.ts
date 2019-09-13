@@ -65,7 +65,6 @@ export class BingMapsComponent implements OnInit {
   }
 
   onChange(event: Event) {
-    console.log(event);
     const style = (event.target as HTMLSelectElement).value;
     for (let i = 0, ii = this.layers.length; i < ii; ++i) {
       this.layers[i].setVisible(this.styles[i] === style);
