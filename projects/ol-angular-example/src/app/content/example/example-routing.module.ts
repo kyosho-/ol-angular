@@ -15,6 +15,7 @@ import { ArcgisImageComponent } from './arcgis-image/arcgis-image.component';
 import { ExampleComponent } from './example.component';
 import { BingMapsComponent } from './bing-maps/bing-maps.component';
 import { BlendModesComponent } from './blend-modes/blend-modes.component';
+import { HeatmapEarthquakesComponent } from './heatmap-earthquakes/heatmap-earthquakes.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
       { path: 'bing-maps', component: BingMapsComponent },
       { path: 'blend-modes', component: BlendModesComponent },
       { path: 'd3', component: D3Component },
+      { path: 'heatmap-earthquakes', component: HeatmapEarthquakesComponent },
       { path: 'icon-negative', component: IconNegativeComponent },
       { path: 'mouse-position', component: MousePositionComponent },
       { path: 'simple', component: SimpleComponent },
