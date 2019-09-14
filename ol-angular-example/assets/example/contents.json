@@ -63,6 +63,13 @@
         "url": "https://openlayers.org/en/latest/examples/"
     },
     {
+        "id": "heatmap-earthquakes",
+        "fileName": "heatmap-earthquakes.html",
+        "name": "Earthquakes Heatmap",
+        "description": "Demonstrates the use of a heatmap layer.",
+        "url": "https://openlayers.org/en/latest/examples/"
+    },
+    {
         "id": "icon-negative",
         "fileName": "icon-negative.html",
         "name": "Icon Pixel Operations",
