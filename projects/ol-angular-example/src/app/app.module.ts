@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ExampleModule } from './content/example/example.module';
 import { OlAngularModule } from './content/ol-angular/ol-angular.module';
+import { GsiModule } from './content/gsi/gsi.module';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -55,6 +56,7 @@ export function hljsLanguages() {
     }),
     ExampleModule,
     OlAngularModule,
+    GsiModule,
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,

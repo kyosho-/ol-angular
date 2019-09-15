@@ -15,6 +15,8 @@ const routes: Routes = [
   { path: 'license', component: LicenseComponent },
   // ol examples
   { path: 'example', loadChildren: './content/example/example.module#ExampleModule' },
+  // GSI DataSource
+  { path: 'gsi', loadChildren: './content/gsi/gsi.module#GsiModule' },
   // ol-angular examples
   { path: 'ol-angular/reticle', component: ReticleComponent },
   { path: 'ol-angular/zoom', component: ZoomComponent }

@@ -16,6 +16,14 @@
 
 <div>
     <mat-nav-list>
+        <h3 mat-subheader>Data(GSI)</h3>
+        <mat-list-item [routerLink]="['/gsi/', 'std', 'std']">
+            <mat-icon mat-list-icon color="primary">layers</mat-icon>
+            <h4 mat-line>GSI Standard</h4>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+
         <h3 mat-subheader>Examples ol</h3>
         <mat-list-item *ngFor="let content of contents$ | async" [routerLink]="['/example/', content.id, content.id]">
             <mat-icon mat-list-icon color="primary">map</mat-icon>
