@@ -84,6 +84,13 @@
         "url": "https://openlayers.org/en/latest/examples/"
     },
     {
+        "id": "reprojection-by-code",
+        "fileName": "reprojection-by-code.html",
+        "name": "Reprojection with EPSG.io Search",
+        "description": "Demonstrates client-side raster reprojection of OSM to arbitrary projection.",
+        "url": "https://openlayers.org/en/latest/examples/"
+    },
+    {
         "id": "simple",
         "fileName": "simple.html",
         "name": "Simple Map",

@@ -1,1 +1,12 @@
-<p>reprojection-by-code works!</p>
+<div id="map" class="map"></div>
+<label for="epsg-query">Search projection:</label>
+<input type="text" id="epsg-query" placeholder="4326, 27700, US National Atlas, Swiss, France, ..." class="form-control"
+    size="50" [(ngModel)]="query" />
+<button id="epsg-search" class="btn" (click)="search($event)">Search</button>
+<span id="epsg-result">{{resultSpan}}</span>
+<div>
+    <label for="render-edges">
+        Render reprojection edges
+        <input type="checkbox" id="render-edges" (change)="setRenderEdges($event)">
+    </label>
+</div>
