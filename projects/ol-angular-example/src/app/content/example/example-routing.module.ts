@@ -16,6 +16,7 @@ import { ExampleComponent } from './example.component';
 import { BingMapsComponent } from './bing-maps/bing-maps.component';
 import { BlendModesComponent } from './blend-modes/blend-modes.component';
 import { HeatmapEarthquakesComponent } from './heatmap-earthquakes/heatmap-earthquakes.component';
+import { ReprojectionByCodeComponent } from './reprojection-by-code/reprojection-by-code.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
       { path: 'heatmap-earthquakes', component: HeatmapEarthquakesComponent },
       { path: 'icon-negative', component: IconNegativeComponent },
       { path: 'mouse-position', component: MousePositionComponent },
+      { path: 'reprojection-by-code', component: ReprojectionByCodeComponent },
       { path: 'simple', component: SimpleComponent },
       { path: 'static-image', component: StaticImageComponent },
       // {path: '**', component: NotImplementedComponent } // TODO:
