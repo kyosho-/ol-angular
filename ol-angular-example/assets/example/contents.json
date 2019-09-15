@@ -84,6 +84,13 @@
         "url": "https://openlayers.org/en/latest/examples/"
     },
     {
+        "id": "reprojection",
+        "fileName": "reprojection.html",
+        "name": "Raster Reprojection",
+        "description": "Demonstrates client-side raster reprojection between various projections.",
+        "url": "https://openlayers.org/en/latest/examples/"
+    },
+    {
         "id": "reprojection-by-code",
         "fileName": "reprojection-by-code.html",
         "name": "Reprojection with EPSG.io Search",
